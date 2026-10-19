@@ -1,0 +1,86 @@
+\subsection{Notation and the relation to wSMI}
+Write $P_{ij}=p_{XY}(i,j)$ and $Q_{ij}=p_X(i)p_Y(j)$, with both marginals computed before masking. Symbols are amplitude ranks in time order, ordered lexicographically. For a kernel of length $k$, there are $n=k!$ symbols. The usual binary mask retains the set
+\[
+S=\{(i,j):j\ne i,\ j\ne\rho(i)\},
+\]
+where $\rho$ complements each amplitude rank. This operation represents sign inversion of a signal; it is not time reversal. Unless otherwise stated, all logarithms are natural and scores are in nats. The conventional normalisation by $\log(k!)$ may be applied to both measures without changing their signs or the conclusions below.
+
+In this notation, the unnormalised wSMI is
+\begin{equation}
+W=\sum_{(i,j)\in S}P_{ij}\log\frac{P_{ij}}{Q_{ij}},
+\label{eq:wsmi}
+\end{equation}
+with a zero contribution when $P_{ij}=0$. If $P_{ij}>0$, both corresponding marginals are positive, so $Q_{ij}>0$. Thus $P$ is absolutely continuous with respect to $Q$; in particular, $m>0$ implies $z>0$. Expanding the defining divergence gives
+\begin{equation}
+\operatorname{wSD}=W+m\log\frac{z}{m},\qquad m>0.
+\label{eq:correction}
+\end{equation}
+The additional term corrects the difference between the retained masses under the joint and independent-reference distributions. Its sign depends on whether $m$ is smaller or larger than $z$; wSD is therefore not necessarily larger than wSMI. Negative wSMI is already recognised in the literature \cite{imperatori2019eeg}. It does not contradict nonnegativity of ordinary mutual information: the weighted sum in Eq.~\eqref{eq:wsmi} is a different functional.
+
+\subsection{Nonnegativity and the complete zero set}
+\begin{theorem}[Nonnegativity and equality]
+For every joint distribution on finite symbol alphabets and every fixed retained set $S$, wSD is well-defined and nonnegative. Moreover,
+\begin{align}
+\operatorname{wSD}=0\quad\Longleftrightarrow\quad &m=0\quad\text{or}\nonumber\\
+&\left[m>0\ \text{and}\ P_{ij}=\frac{m}{z}Q_{ij}
+\ \forall(i,j)\in S\right].
+\label{eq:zeros}
+\end{align}
+\end{theorem}
+\begin{proof}
+The case $m=0$ follows by definition. If $m>0$, then $z>0$, and $P|_S/m$ and $Q|_S/z$ are probability distributions. Gibbs' inequality gives nonnegativity of their KL divergence, with equality if and only if the two distributions agree on every retained cell. Multiplication by the positive number $m$ gives both statements. The equality includes zero cells: a retained cell with $P_{ij}=0<Q_{ij}$ precludes equality. Cells with $P_{ij}=Q_{ij}=0$ impose no additional restriction.
+\end{proof}
+
+Equation~\eqref{eq:zeros} describes exactly when dependence can give a zero value. If $m=0$, every observed pair is excluded, regardless of the amount of dependence. For example, with tie-free patterns, identical signals and sign-inverted signals have wSD equal to zero. This is intended behaviour: the mask was chosen to disregard these interactions. If $m>0$, the likelihood ratio $P_{ij}/Q_{ij}$ must be constant, equal to $m/z$, on all retained cells with $Q_{ij}>0$. This constant need not be one. Dependence can therefore change the frequency of entering $S$ without changing the relative distribution within $S$, or remain within the excluded part of the table. Conversely, if $m>0$ and any retained cell violates this proportionality, wSD is strictly positive.
+
+In particular, if all deviations from independence are confined to excluded cells, so that $P_{ij}=Q_{ij}$ for every $(i,j)\in S$, then $m=z$ and wSD is zero. This is a desired selectivity property, rather than a failure to detect an interaction the measure was intended to retain. For an explicit example with positive retained mass, start from the uniform $6\times6$ table $Q_{ij}=1/36$ and put
+\begin{equation}
+P=Q+\frac{1}{72}(I_6-R_6),
+\end{equation}
+where $I_6$ is the identity and $R_6$ the anti-diagonal permutation matrix. Both perturbation matrices have unit row and column sums, so the marginals remain uniform. All changed cells are masked; $m=z=2/3$, wSD is zero, and ordinary MI is positive. The extra zero cases allowed by Eq.~\eqref{eq:zeros}, with $m\ne z$, are distinct: the retained probabilities differ from $Q$ by one common multiplicative factor. Normalisation removes that factor from the conditional comparison. This does not make nonzero wSD values invariant to arbitrary changes in retained mass, since the prefactor $m$ remains.
+
+For a concrete positive-retained-mass example, consider the six ordinal symbols of length three, in the order shown in Fig.~\ref{fig:mask}. Put
+\begin{equation}
+P_{ij}=\begin{cases}
+10/144,&j=i\ \text{or}\ j=7-i,\\
+1/144,&\text{otherwise},
+\end{cases}\qquad 1\leq i,j\leq6.
+\label{eq:zeroexample}
+\end{equation}
+Each row and column sums to $1/6$, so $Q_{ij}=1/36$, while $m=1/6$ and $z=2/3$. On every retained cell $P_{ij}=Q_{ij}/4$; hence wSD is exactly zero even though $P\ne Q$ and the variables are dependent. Indeed,
+\begin{align*}
+W&=-\frac{\log4}{6}<0,\\
+I(X;Y)&=\frac56\log\frac52-\frac16\log4>0.
+\end{align*}
+The dependence discarded by wSD is entirely in the relative masses of the retained and excluded sets in this example. When $k=2$, the standard mask excludes every cell, so wSD is identically zero for every distribution. A nontrivial application of this mask therefore requires $k\geq3$.
+
+\subsection{The information bound and the dependence that is discarded}
+\begin{proposition}[Partition of mutual information]
+Let $S^c$ be the excluded set. For $0<m,z<1$,
+\begin{align}
+I(X;Y)={}&d_{\mathrm{Ber}}(m\|z)+\operatorname{wSD}\nonumber\\
+&+(1-m)D_{\mathrm{KL}}\!\left(
+\frac{P|_{S^c}}{1-m}\middle\|\frac{Q|_{S^c}}{1-z}\right),
+\label{eq:partition}
+\end{align}
+where $d_{\mathrm{Ber}}$ is the KL divergence between Bernoulli distributions with parameters $m$ and $z$. The identity extends to the boundaries by continuity, taking a conditional term with zero joint mass to be zero. Consequently,
+\begin{equation}
+0\leq\operatorname{wSD}\leq I(X;Y)\leq\log(k!).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Split $\sum_{ij}P_{ij}\log(P_{ij}/Q_{ij})$ into sums on $S$ and $S^c$. In each part factor the probability ratio into the ratio of the total masses and the ratio of the corresponding conditional probabilities. The mass terms are $m\log(m/z)+(1-m)\log[(1-m)/(1-z)]$; the remaining terms are the two conditional divergences in Eq.~\eqref{eq:partition}. Each term is nonnegative. Finally, mutual information is bounded by either marginal entropy, hence by $\log(k!)$.
+\end{proof}
+
+This partition gives an equivalent, exhaustive description of dependent zero cases: when wSD is zero, $X$ and $Y$ are dependent if and only if the Bernoulli term or the excluded-set divergence in Eq.~\eqref{eq:partition} is positive. The first occurs when $m\ne z$; the second occurs when the distributions within the excluded set differ, provided its joint mass is nonzero. If both terms vanish as well, then $P=Q$ and the symbols are independent. Independence thus implies zero wSD, but zero wSD does not imply independence. This distinction concerns the symbolic variables; symbolisation can itself conceal dependence present in the original signals.
+
+The reference $Q(\cdot\mid S)$ is generally not the product of the marginals of $P(\cdot\mid S)$. Consequently, wSD should not be called conditional mutual information. It is a mass-weighted conditional divergence from a masked independence reference, and it is not a distance metric. With the symmetric ordinal mask, it is symmetric in $X$ and $Y$. Keeping the same exclusions does not, by itself, establish immunity to volume conduction or distinguish genuine instantaneous coupling from common-source activity.
+
+For completeness, the local behaviour also follows directly. Suppose $Q$ is strictly positive, $P_\epsilon=Q+\epsilon H$ preserves both marginals, and $h=\sum_S H_{ij}$ with $z>0$. A Taylor expansion gives
+\begin{equation}
+\operatorname{wSD}(P_\epsilon)
+=\frac{\epsilon^2}{2}\left(
+\sum_S\frac{H_{ij}^2}{Q_{ij}}-\frac{h^2}{z}\right)
++O(\epsilon^3).
+\end{equation}
+The bracket is nonnegative by Cauchy--Schwarz. Its subtraction term removes perturbations that merely rescale retained mass; this is the local counterpart of the exact equality condition, rather than an assertion that wSD detects all departures from independence.

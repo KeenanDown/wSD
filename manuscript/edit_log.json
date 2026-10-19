@@ -1,0 +1,86 @@
+{
+  "prose_replacements": [
+    {
+      "reason": "Correct spelling",
+      "original": "permtutation",
+      "replacement": "permutation"
+    },
+    {
+      "reason": "Specify the mask without implying universal artifact removal",
+      "original": "accounts for volume conductivity effects by weighting out perfect instantaneous synchrony or asynchrony.",
+      "replacement": "attempts to reduce common-source effects by excluding identical and amplitude-reversed ordinal patterns."
+    },
+    {
+      "reason": "Distinguish a signed functional from ordinary mutual information",
+      "original": "We show that this weighting-out method is mathematically not well-founded, showing that it can lead both to negative mutual information (which should be theoretically impossible) and to potential spurious biases.",
+      "replacement": "This weighted sum need not be nonnegative, because excluding selected contributions removes the nonnegativity guarantee of ordinary mutual information. We give an exact population counterexample and a reproducible EEG illustration."
+    },
+    {
+      "reason": "Use the requested name and the definition actually supplied",
+      "original": "Using a recently emerging perspective on scaleless information theory, we propose a correction to the weighting procedure for wSMI, creating a new measure, called conditional Symbolic Mutual Information (cSMI).",
+      "replacement": "We propose a correction to the weighting procedure for wSMI, creating a new measure, called weighted Symbolic Divergence (wSD), defined as the retained probability mass multiplied by a KL divergence between the separately normalised retained joint and independent-reference distributions."
+    },
+    {
+      "reason": "Replace unsupported unbiasedness and performance claims with proved and tested claims",
+      "original": "We show that this new measure behaves similarly to wSMI but is mathematically well-founded, unbiased, and straightforward to implement in current wSMI pipelines.",
+      "replacement": "We prove nonnegativity, establish an upper bound by unweighted symbolic mutual information, and characterise exactly when wSD vanishes despite dependence. An open Python implementation supports deployment in symbolic-connectivity pipelines. The plug-in estimator remains subject to finite-sample bias, and the EEG analysis is an exploratory numerical validation."
+    },
+    {
+      "reason": "Resolve placeholder citation and qualify robustness",
+      "original": "accounts for three challenging problems encountered with noisy EEG signals: stability under the presence of noise, non-linear interactions between signals, and accounting for volume conductance effects in EEG \\cite{nobody}.",
+      "replacement": "addresses three challenging problems encountered with noisy EEG signals: robustness to noise, non-linear interactions between signals, and volume conduction effects in EEG \\cite{king2013information, imperatori2019eeg}."
+    },
+    {
+      "reason": "Functional connectivity is not itself exclusively a linear measure",
+      "original": "Early connectivity measures such as functional connectivity \\cite{friston1993functional, friston1994functional, biswal1995functional} or EEG coupling \\cite{nobody} look at linear correlations and relationships between the time series of two different signals.",
+      "replacement": "Early applications of functional connectivity often examined linear correlations and relationships between the time series of two different signals \\cite{friston1993functional, friston1994functional, biswal1995functional}."
+    },
+    {
+      "reason": "Avoid claiming that coarse ordinal symbols retain every signal dependency",
+      "original": "Information-theoretic connectivity measures capture \\textit{all} relationships between signals --- linear and non-linear.",
+      "replacement": "Mutual information can detect both linear and non-linear dependence between the variables represented, although finite sampling and symbolisation can obscure relationships present in the original signals."
+    },
+    {
+      "reason": "State the precise ordinal invariance",
+      "original": "which is invariant to amplitude \\cite{bandt2002permutation, king2013information}.",
+      "replacement": "which is invariant to strictly increasing amplitude transformations in the absence of ties \\cite{bandt2002permutation, king2013information}."
+    },
+    {
+      "reason": "Correct the volume-conduction interpretation and resolve citation",
+      "original": "the instantaneous conduction of signal, not necessarily representative of actual brain activity or connectivity \\cite{nobody}.",
+      "replacement": "the instantaneous mixing of activity from common sources, which need not represent an interaction between distinct brain regions \\cite{imperatori2019eeg}."
+    },
+    {
+      "reason": "Correct strict positivity and specify the complete equality condition",
+      "original": "wSD has the useful property that it is strictly positive for all possible distributions, while still accounting for the volume conduction effects that wSMI was designed to handle.",
+      "replacement": "wSD is nonnegative for every joint distribution. It is strictly positive precisely when retained mass is positive and the retained joint distribution is not proportional to the retained product of the original marginals. The measure preserves the exclusions used by wSMI, but a separate validation is needed to establish its sensitivity to genuine interactions and its resistance to volume conduction."
+    },
+    {
+      "reason": "Explain the local behavior and dependence lost by masking",
+      "original": "behaves locally like mutual information away from the weighted-out volume conduction nodes, and is intuitively familiar to the construction of mutual information as a KL-divergence.",
+      "replacement": "has a nonnegative quadratic expansion near independence, and follows the construction of mutual information as a KL divergence. Dependence confined to excluded cells is appropriately ignored by design. Its complete zero set also includes a uniform proportional change across retained cells, without a change in their relative distribution."
+    },
+    {
+      "reason": "Align the conclusion with the evidence actually generated",
+      "original": "In our analysis we also demonstrated that this new measure, wSD, is well behaved both on toy systems and experimental data: it is straightforward to calculate and exhibits behaviour familiar to wSMI while strengthening its mathematical foundations.",
+      "replacement": "Our analysis supplies an exact negative-wSMI/positive-wSD example, a signal-level realisation, a finite-sample null study, and an exploratory analysis of public EEG recordings. These results establish the proposed mathematical guarantees and demonstrate implementation on real data; they do not establish clinical usefulness, unbiased estimation, or superiority over wSMI. Appropriate surrogate calibration and independent evaluation remain necessary."
+    }
+  ],
+  "figure_caption": {
+    "original": "The outcomes available from wSMI. The crossed sections indicated are removed in the calculation in order to account for volume conduction.",
+    "replacement": "The six ordinal patterns for kernel length three, labelled by amplitude ranks in time order. Crosses identify identical and amplitude-reversed pairs excluded by both wSMI and wSD. The exclusion is intended to reduce common-source contributions."
+  },
+  "new_sections": [
+    "theory.tex",
+    "validation.tex",
+    "implementation.tex"
+  ],
+  "production_changes": [
+    "Correct IEEEtran class option",
+    "Replace changes package with explicit red/green markup",
+    "Remove unused packages",
+    "Scale original TikZ figure to column width",
+    "Add figure label and working hyperlinks",
+    "Mark newly added bibliography entries green"
+  ]
+}

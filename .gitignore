@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+data/raw/
+.mplconfig/
+.DS_Store
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.out
+manuscript/qa/

@@ -1,0 +1,70 @@
+{
+  "dataset": "PhysioNet EEG Motor Movement/Imagery Dataset v1.0.0",
+  "doi": "10.13026/C28G6P",
+  "license": "Open Data Commons Attribution License v1.0",
+  "license_url": "https://physionet.org/content/eegmmidb/view-license/1.0.0/",
+  "retrieved_utc": "2026-10-19T12:51:34.680748+00:00",
+  "selection": "S001-S005, R01 eyes open and R02 eyes closed, selected before analysis",
+  "records": [
+    {
+      "record": "S001R01",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S001/S001R01.edf",
+      "sha256": "4743b736131a7e147c150e8b37711029b6cda5e356c4b3e8261a03cdcaaf8b0c",
+      "bytes": 1275936
+    },
+    {
+      "record": "S001R02",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S001/S001R02.edf",
+      "sha256": "31a95e0a880e6c3d89960d9d62c144f24cc4e9f5d7e93c7f864ef61cd49e847e",
+      "bytes": 1275936
+    },
+    {
+      "record": "S002R01",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S002/S002R01.edf",
+      "sha256": "d542689b31c977838f20b1a2062865b98ecf10a7e9702f56f101000d47f2ec68",
+      "bytes": 1275936
+    },
+    {
+      "record": "S002R02",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S002/S002R02.edf",
+      "sha256": "666a9299341ece77522df050b1ddd128179a540548d82642ba975a65b4f6d84e",
+      "bytes": 1275936
+    },
+    {
+      "record": "S003R01",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S003/S003R01.edf",
+      "sha256": "2af68afa8d4f158a7ae7f3903b66f0947925880639b7a8b5b6bb13b0c6c50f96",
+      "bytes": 1275936
+    },
+    {
+      "record": "S003R02",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S003/S003R02.edf",
+      "sha256": "41044fea497e05650c4b1f4009011b44a50a6cefd55d5afa9e1d1b7988afd6e5",
+      "bytes": 1275936
+    },
+    {
+      "record": "S004R01",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S004/S004R01.edf",
+      "sha256": "23e9645f492488d2376ac3a606d177043efc6e5fb00281c2d6648e4b06a6ce62",
+      "bytes": 1275936
+    },
+    {
+      "record": "S004R02",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S004/S004R02.edf",
+      "sha256": "32134f3ce7056fd6487855552636b8f93ea2d67631ef1da6f6474eda6040162f",
+      "bytes": 1275936
+    },
+    {
+      "record": "S005R01",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S005/S005R01.edf",
+      "sha256": "f84f58d7d96bce1700af8b2c9e333d66e4b2183e34b3ed5634840fff37845af0",
+      "bytes": 1275936
+    },
+    {
+      "record": "S005R02",
+      "url": "https://physionet.org/files/eegmmidb/1.0.0/S005/S005R02.edf",
+      "sha256": "bdb498c613cd048a889899282e8f5491c23a76731f3c2be11800362b7bbcb836",
+      "bytes": 1275936
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "seed": 20261019,
+  "counterexample": {
+    "wsd": 0.019254088348887366,
+    "wsmi": -0.21179497183776108,
+    "smi": 0.5517806380573683,
+    "retained_mass": 0.16666666666666669,
+    "reference_mass": 0.6666666666666667,
+    "n_observations": null
+  },
+  "realised": {
+    "wsd": 0.019254088348887366,
+    "wsmi": -0.21179497183776108,
+    "smi": 0.5517806380573683,
+    "retained_mass": 0.16666666666666669,
+    "reference_mass": 0.6666666666666667,
+    "n_observations": 144
+  },
+  "dependent_zero": {
+    "wsd": 2.3111159332646827e-33,
+    "wsmi": -0.23104906018664848,
+    "smi": 0.532526549708481,
+    "retained_mass": 0.16666666666666669,
+    "reference_mass": 0.6666666666666667,
+    "n_observations": null
+  },
+  "random_audit": {
+    "n_tables": 10000,
+    "min_wsd": 0.08614554257518517,
+    "max_excess_over_smi": 0.0,
+    "max_identity_error": 4.718447854656915e-16,
+    "negative_wsmi": 59
+  },
+  "null_summary": [
+    {
+      "n_samples": 100,
+      "replicates": 200,
+      "mean_wsd": 0.09499205413494596,
+      "mean_wsmi": 0.09117416819698942,
+      "fraction_negative_wsmi": 0.045
+    },
+    {
+      "n_samples": 300,
+      "replicates": 200,
+      "mean_wsd": 0.028054168410642316,
+      "mean_wsmi": 0.027569419877834535,
+      "fraction_negative_wsmi": 0.17
+    },
+    {
+      "n_samples": 1000,
+      "replicates": 200,
+      "mean_wsd": 0.008120941438987445,
+      "mean_wsmi": 0.00757432835375067,
+      "fraction_negative_wsmi": 0.34
+    },
+    {
+      "n_samples": 3000,
+      "replicates": 200,
+      "mean_wsd": 0.002558192655393649,
+      "mean_wsmi": 0.001346682142677205,
+      "fraction_negative_wsmi": 0.435
+    },
+    {
+      "n_samples": 10000,
+      "replicates": 200,
+      "mean_wsd": 0.0008366520982246118,
+      "mean_wsmi": 0.0013303764404717234,
+      "fraction_negative_wsmi": 0.4
+    }
+  ]
+}

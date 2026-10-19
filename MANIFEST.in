@@ -1,0 +1,5 @@
+recursive-include research *.py
+recursive-include data *.json
+recursive-include manuscript *.tex *.bib *.json
+recursive-include manuscript/figures *.pdf
+recursive-include results *.json *.csv *.csv.gz *.pdf *.png

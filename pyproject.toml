@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weighted-symbolic-divergence"
+version = "0.1.0"
+description = "Weighted symbolic divergence and reproducible comparisons with wSMI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-only"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+research = ["scipy>=1.10", "matplotlib>=3.7", "mne>=1.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
